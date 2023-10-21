@@ -1,13 +1,13 @@
 #include "sort.h"
 
 /**
- * selection_sort - sorts an array following the selection of algorithm
- * @array: the array to sort
+ * selection_sort - sorts an array following the selection sort algorithm
+ * @array: array to sort
  * @size: size of the array;
  */
 void selection_sort(int *array, size_t size)
 {
-	unsigned int i, j, k;
+	unsigned int i, j, min;
 
 	register int tmp;
 
@@ -16,16 +16,16 @@ void selection_sort(int *array, size_t size)
 
 	for (i = 0; i < size; i++)
 	{
-		k = i;
+		min = i;
 		for (j = i + 1; j < size; j++)
 		{
 			if (array[j] < array[min])
-				k = j;
+				min = j;
 		}
 		tmp = array[i];
-		array[i] = array[k];
-		array[k] = tmp;
-		if (i != k)
+		array[i] = array[min];
+		array[min] = tmp;
+		if (i != min)
 			print_array(array, size);
 	}
 }
